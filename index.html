@@ -18,7 +18,7 @@
   <div class="content" id="message">192.168.4.1로 이동하는 중...</div>
   <script>
     function redirectToAddress() {
-      fetch("http://192.168.4.1")
+      fetch("192.168.4.1")
         .then(function (response) {
           if (response.status === 404) {
             document.getElementById("message").innerText = "ESP01과 연결되지 않았습니다.(404)";
