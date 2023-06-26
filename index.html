@@ -3,21 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>자동으로 192.168.4.1로 이동</title>
+  <title>192.168.4.1로 이동</title>
+  <style>
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+    }
+  </style>
 </head>
 <body>
+  <div class="content" id="message">192.168.4.1로 이동하는 중...</div>
   <script>
     function redirectToAddress() {
       fetch("http://192.168.4.1")
         .then(function (response) {
           if (response.status === 404) {
-            document.body.innerHTML = "ESP01과 연결되지 않았습니다.";
+            document.getElementById("message").innerText = "ESP01과 연결되지 않았습니다.(404)";
           } else {
             window.location.href = "http://192.168.4.1";
           }
         })
         .catch(function (error) {
-          document.body.innerHTML = "ESP01과 연결되지 않았습니다.";
+          document.getElementById("message").innerText = "ESP01과 연결되지 않았습니다.(404)";
         });
     }
     
